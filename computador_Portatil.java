@@ -1,13 +1,13 @@
 public class computador_Portatil {
-    String serial, marca, sistemaOp, procesador;
-    float tamaño;
-    int precio;
-    public computador_Portatil(String serial, String marca, String sistemaOp,String procesador, float tamaño, int precio) {
+    private String serial, marca, sistemaOp, procesador;
+    private float tamano;
+    private int precio;
+    public computador_Portatil(String serial, String marca, String sistemaOp,String procesador, float tamano, int precio) {
         this.serial = serial;
         this.marca = marca;
         this.sistemaOp = sistemaOp;
         this.procesador = procesador;
-        this.tamaño = tamaño;
+        this.tamano = tamano;
         this.precio = precio;
     }
     public String getSerial() {
@@ -34,11 +34,11 @@ public class computador_Portatil {
     public void setProcesador(String procesador) {
         this.procesador = procesador;
     }
-    public float getTamaño() {
-        return tamaño;
+    public float getTamano() {
+        return tamano;
     }
     public void setTamaño(float tamaño) {
-        this.tamaño = tamaño;
+        this.tamano = tamaño;
     }
     public int getPrecio() {
         return precio;
