@@ -1,13 +1,20 @@
 public class tablet_grafica {
-    String serial, marca, almacenamiento;
-    float tamaño;
-    int precio;
-    public tablet_grafica(String serial, String marca, String almacenamiento, float tamaño, int precio) {
+    private String serial, marca, almacenamiento;
+    private float tamano, peso;
+    private int precio;
+    public tablet_grafica(String serial, String marca, String almacenamiento, float tamano, float peso, int precio) {
         this.serial = serial;
         this.marca = marca;
         this.almacenamiento = almacenamiento;
-        this.tamaño = tamaño;
+        this.tamano = tamano;
         this.precio = precio;
+        this.peso = peso;
+    }
+    public float getPeso() {
+        return peso;
+    }
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
     public String getSerial() {
         return serial;
@@ -27,11 +34,11 @@ public class tablet_grafica {
     public void setAlmacenamiento(String almacenamiento) {
         this.almacenamiento = almacenamiento;
     }
-    public float getTamaño() {
-        return tamaño;
+    public float getTamano() {
+        return tamano;
     }
-    public void setTamaño(float tamaño) {
-        this.tamaño = tamaño;
+    public void setTamano(float tamaño) {
+        this.tamano = tamaño;
     }
     public int getPrecio() {
         return precio;
