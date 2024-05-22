@@ -25,24 +25,22 @@ public class registroArchivo {
             bufferEscritor.close();
             System.out.println("Registro realizado con exito :)");
         } catch (IOException e) {
-            System.err.println("Ocurrió un error al modificar el archivo.");
+            System.err.println("Ocurrió un error al realizar el registro.");
             e.printStackTrace();
         }
     }
     public void mostrarArchivo(){
         String nombreArchivo = "Registro_Computadores.txt";
         try {
-            // Crear FileReader y BufferedReader para leer el archivo
             FileReader lectorArchivo = new FileReader(nombreArchivo);
             BufferedReader bufferLector = new BufferedReader(lectorArchivo);
-            // Leer y mostrar el contenido del archivo
             String linea;
             while ((linea = bufferLector.readLine()) != null) {
                 System.out.println(linea);
             }
             bufferLector.close();
         } catch (IOException e) {
-            System.err.println("Ocurrió un error al leer el archivo.");
+            System.err.println("Ocurrió un error al mostrar el archivo.");
             e.printStackTrace();
         }
     }
