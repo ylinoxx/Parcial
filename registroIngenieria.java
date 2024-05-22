@@ -14,8 +14,10 @@ public class registroIngenieria {
         String procesador = sM.subP();
         System.out.println("Ingrese el tamaño (Pulgadas)");
         float tamano = in.nextFloat();
+        in.nextLine();
         System.out.println("Ingrese el precio");
         int precio = in.nextInt();
+        in.nextLine();
         computador_Portatil c = new computador_Portatil(serial, marca, sistemaOp, procesador, tamano, precio);
         String retorno = "serial: "+ c.getSerial() + "\n marca: "+ c.getMarca() + "\n sistema operativo: " + c.getSistemaOp() +
         "\n procesador: "+ c.getProcesador() +"\n tamaño: " + c.getTamano() +"in\n precio: "+ c.getPrecio() +"$";
@@ -31,10 +33,13 @@ public class registroIngenieria {
         String almacenamiento = sM.subTD();
         System.out.println("Ingrese el tamaño (Pulgadas)");
         float tamano = in.nextFloat();
+        in.nextLine();
         System.out.println("Ingrese el precio");
         int precio = in.nextInt();
+        in.nextLine();
         System.out.println("Ingrese el peso (Kg)");
         float peso = in.nextFloat();
+        in.nextLine();
         tablet_grafica tg = new tablet_grafica(serial, marca, almacenamiento, tamano, peso, precio);
         String retorno = "serial: "+ tg.getSerial() + "\n marca: "+ tg.getMarca() + "\n almacenamiento: " + tg.getAlmacenamiento() +"\n tamaño: " + 
         tg.getTamano() +"in\n precio: "+ tg.getPrecio() +"$\n peso: " + tg.getPeso() + "kg";
