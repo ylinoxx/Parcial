@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class mainPrestamo {
     public static void main(String[] args) {
         String nombreArchivo = "Registro_Prestamo.txt";
+        String nombreArchivoDis = "Registro_PrestamoDis.txt";
         creacionArchivo archivo = new creacionArchivo();
+        archivo.archivoDis(nombreArchivoDis);
         archivo.archivo(nombreArchivo);
         while (true) {
             Scanner  in = new Scanner(System.in);
@@ -21,11 +23,12 @@ public class mainPrestamo {
             switch (seleccion) {
                 case 1: case 2:
                     segundoMenu Sm = new segundoMenu();
-                    Sm.Menu(nombreArchivo);   
+                    Sm.Menu(nombreArchivo, nombreArchivoDis, seleccion);   
                     break;
                 case 3:
                     mostrarRegistros MR = new mostrarRegistros();
                     MR.mostrar(nombreArchivo, false);
+                    MR.mostrarDis(nombreArchivoDis, false);
                     break;
                 case 4:
                     System.exit(0);

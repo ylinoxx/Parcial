@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class segundoMenu {
-    public void Menu(String nombreArchivo){
+    public void Menu(String nombreArchivo, String nombreArchivoDis, int seleccion){
         Scanner in = new Scanner(System.in);
         int seleccionM2;
         boolean bucle = true;
@@ -19,21 +19,38 @@ public class segundoMenu {
             in.nextLine();
             switch (seleccionM2) {
                 case 1:
-                    prestamoIng nuevoPrestamo = prestamoIng.INGinput();
                     crearRegistro nuevoRegistro = new crearRegistro();
-                    nuevoRegistro.registro(nuevoPrestamo, nombreArchivo);
+                    if (seleccion == 1) {
+                        prestamoIng nuevoPrestamo = prestamoIng.INGinput();
+                        nuevoRegistro.registro(nuevoPrestamo, nombreArchivo);
+                    } else {
+                        prestamoDis nuevPrestamoDis = prestamoDis.DISinput();
+                        nuevoRegistro.registroDis(nuevPrestamoDis, nombreArchivoDis);
+                    }
                     break;
                 case 2:
                     modificarRegistro mod = new modificarRegistro();
-                    mod.modRegistro(nombreArchivo);
+                    if (seleccion == 1) {
+                        mod.modRegistro(nombreArchivo);
+                    } else{
+                        mod.modRegistroDis(nombreArchivoDis);
+                    }
                     break;
                 case 3:
                     devolucionPrestamo dv = new devolucionPrestamo();
-                    dv.devolucion(nombreArchivo);
+                    if (seleccion == 1) {
+                        dv.devolucion(nombreArchivo);
+                    } else {
+                        dv.devolucionDis(nombreArchivoDis);
+                    }
                     break;
                 case 4:
                     mostrarRegistros MR1 = new mostrarRegistros();
-                    MR1.mostrar(nombreArchivo, true);
+                    if (seleccion == 1) {
+                        MR1.mostrar(nombreArchivo, true);
+                    } else {
+                        MR1.mostrarDis(nombreArchivoDis, bucle);
+                    }
                     break;
                 case 5:
                     bucle = false;

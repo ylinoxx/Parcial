@@ -65,4 +65,62 @@ public class mostrarRegistros {
             System.out.println("\n");
         }
     }
+    public List<prestamoDis> leerDis(String nombreArchivoDis){
+        List<prestamoDis> prestamos = new ArrayList<>();
+        try (BufferedReader lector = new BufferedReader(new FileReader(nombreArchivoDis))) {
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                if (linea.trim().isEmpty()) {
+                    continue;
+                }
+                if (linea.startsWith("Estudiante:")) {
+                    String cedula = lector.readLine().split(": ")[1];
+                    String nombre = lector.readLine().split(": ")[1];
+                    String apellido = lector.readLine().split(": ")[1];
+                    String telefono = lector.readLine().split(": ")[1];
+                    String modalidadEst = lector.readLine().split(": ")[1];
+                    int cantAsignaturas = Integer.parseInt(lector.readLine().split(": ")[1]);
+                    estudianteDis estudiante = new estudianteDis(cedula, nombre, apellido, telefono, modalidadEst, cantAsignaturas);
+                    lector.readLine();
+                    String serial = lector.readLine().split(": ")[1];
+                    String marca = lector.readLine().split(": ")[1];
+                    String almacenamiento = lector.readLine().split(": ")[1];
+                    float tamano = Float.parseFloat(lector.readLine().split(": ")[1]);
+                    int precio = Integer.parseInt(lector.readLine().split(": ")[1]);
+                    int peso = Integer.parseInt(lector.readLine().split(": ")[1]);
+                    tabletGrafica tablet = new tabletGrafica(serial, marca, almacenamiento, tamano, peso, precio);
+                    prestamoDis prestamo = new prestamoDis(estudiante, tablet);
+                    prestamos.add(prestamo);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer los registros.");
+            e.printStackTrace();
+        }
+        return prestamos;
+    }
+    public void mostrarDis(String nombreArchivoDis, boolean buscar){
+        List<prestamoDis> registro = new ArrayList<>();
+        if (buscar) {
+            buscarRegistro BR = new buscarRegistro();
+            registro = BR.buscarDis(nombreArchivoDis);
+        }else{
+            registro = leerDis(nombreArchivoDis);
+        }
+        for (prestamoDis prestamoDis : registro) {
+            System.out.println("Cedula: "+ prestamoDis.getEstudianteDiseno().getCedula());
+            System.out.println("Nombre: "+ prestamoDis.getEstudianteDiseno().getNombre());
+            System.out.println("Apellido: "+ prestamoDis.getEstudianteDiseno().getApellido());
+            System.out.println("Telefono: "+ prestamoDis.getEstudianteDiseno().getTelefono());
+            System.out.println("Modalidad Estudio: "+ prestamoDis.getEstudianteDiseno().getModalidadEst());
+            System.out.println("Cantidad Asignaturas: "+ prestamoDis.getEstudianteDiseno().getCantAsignaturas());
+            System.out.println("Serial: "+ prestamoDis.getTablet().getSerial());
+            System.out.println("Marca: "+ prestamoDis.getTablet().getMarca());
+            System.out.println("Almacenamiento: "+ prestamoDis.getTablet().getAlmacenamiento());
+            System.out.println("Peso: "+ prestamoDis.getTablet().getPeso());
+            System.out.println("Tamaño: "+ prestamoDis.getTablet().getTamano());
+            System.out.println("Precio: "+ prestamoDis.getTablet().getPrecio());
+            System.out.println("\n");
+        }
+    }
 }
