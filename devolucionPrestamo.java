@@ -28,4 +28,25 @@ public class devolucionPrestamo {
             e.printStackTrace();
         }
     }
+    public void devolucionDis(String nombreArchivoDis){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingrese el numero de cedula o el serial del registro que desea eliminar");
+        int cedula_serial = in.nextInt();
+        in.nextLine();
+        String cedula_serialString = Integer.toString(cedula_serial); 
+        mostrarRegistros MR = new mostrarRegistros();
+        List<prestamoDis> registros = MR.leerDis(nombreArchivoDis);
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivoDis))) {
+            for (prestamoDis prestamoDis1 : registros) {
+                if (!prestamoDis1.getEstudianteDiseno().getCedula().equals(cedula_serialString) || prestamoDis1.getTablet().getSerial().equals(cedula_serialString)) {
+                    escritor.write(prestamoDis1.PtoString());
+                    escritor.newLine();
+                }
+            }
+            System.out.println("Registro eliminado");
+        } catch (IOException e) {
+            System.err.println("Error al modificar el registro");
+            e.printStackTrace();
+        }
+    }
 }

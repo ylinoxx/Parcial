@@ -15,4 +15,14 @@ public class crearRegistro {
             e.printStackTrace();
         }
     }
+    public void registroDis(prestamoDis Registro, String nombreArchivoDis){
+        try (BufferedWriter escribir = new BufferedWriter(new FileWriter(nombreArchivoDis, true))) {
+            escribir.write(Registro.PtoString());
+            escribir.newLine();
+            System.out.println("Registro creado");
+        } catch (IOException e) {
+            System.err.println("Error al crear el registro.");
+            e.printStackTrace();
+        }
+    }
 }
