@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class registroEstudiantes {
     static Scanner in = new Scanner(System.in);
     public String registroIng(){
-        System.out.println("Ingrese el numero de cedula del estudiante");
         String cedula = in.nextLine();
+        System.out.println("Ingrese el numero de cedula del estudiante");
+        cedula = in.nextLine();
         System.out.println("Ingrese el nombre del estudiante"); 
         String nombre = in.nextLine();
         System.out.println("Ingrese el apellido del estudiante"); 
@@ -15,15 +16,16 @@ public class registroEstudiantes {
         int semestre = in.nextInt();
         System.out.println("Ingrese el promedio acumulado");
         float promedio = in.nextFloat();
-        estudianteIng EI = new estudianteIng(cedula, semestre, nombre, apellido, telefono, promedio);
+        estudianteIng8 EI = new estudianteIng8(cedula, semestre, nombre, apellido, telefono, promedio);
         String retorno = "cedula: "+ EI.getCedula() + "\n nombre: "+ EI.getNombre() + "\n apellido: " + EI.getApellido() +
         "\n telefono: " + EI.getTelefono() +"\n numero semestre actualmente cursado: "+ EI.getNumeroSemestre() +"\n promedio: " +
         EI.getPromedioAcum();
         return retorno;
     }
     public String registroDis(){
-        System.out.println("Ingrese el numero de cedula del estudiante");
         String cedula = in.nextLine();
+        System.out.println("Ingrese el numero de cedula del estudiante");
+        cedula = in.nextLine();
         System.out.println("Ingrese el nombre del estudiante"); 
         String nombre = in.nextLine();
         System.out.println("Ingrese el apellido del estudiante"); 
